@@ -1,0 +1,47 @@
+/*
+ * Author: Caleb A. Payton
+ * Simple recursive algorithm to compute fibonacci numbers.
+ * The larger the input, the less efficient the program runs.
+ */
+
+import java.util.Scanner;
+
+public class Fibonacci {
+	
+	public static void main(String[] args) {
+		int num;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter place of Fibonacci number: ");
+		num = scan.nextInt();
+		
+		for(int i=1; i<=num; i++) {
+			System.out.print(fRecursion(i)+" ");
+		}
+	}//End main
+	
+	public static int fRecursion(int num) {
+		if(num==1 || num==2) {
+			return 1;
+		}
+		return fRecursion(num-1) + fRecursion(num-2);
+	}//End fRecursion
+	
+	public static int fLoop(int num) {
+		if(num==1 || num==2) {
+			return 1;
+		}
+		
+		int f1 = 1;
+		int f2 = 1;
+		int f = 1;
+		
+		for(int i=3; i<=num; i++) {
+			f = f1+f2;
+			f1 = f2;
+			f2 = f;
+		}
+		return f;		
+	}//End fLoop
+}//End Fibonacci
